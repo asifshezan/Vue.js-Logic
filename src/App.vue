@@ -27,6 +27,10 @@ const activeCountry = ref('India');
 
   const showCart = ref(false);
 
+  const number = ref(5);
+
+  const activeIndex = ref(0);
+
 const titlecolor = 'green';
 </script>
 
@@ -106,15 +110,10 @@ const titlecolor = 'green';
     <h3 class="text-left mt-7">2nd Iteams</h3>
     <h3 class="text-left mt-7">3rd Iteams</h3>
   </template>
-
-
-
-
-  <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  <!-- <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
   <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
     <button @click="showCart=true" class="bg-blue-500 hover:bg-blue-700 font-bold text-white py-2 my-20">Display Shopping Cart</button>
   </div>
-
 
       <div v-show="showCart" class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
         <div class="pointer-events-auto w-screen max-w-md">
@@ -185,7 +184,6 @@ const titlecolor = 'green';
                       </div>
                     </li>
 
-                    <!-- More products... -->
                   </ul>
                 </div>
               </div>
@@ -213,9 +211,79 @@ const titlecolor = 'green';
           </div>
         </div>
       </div>
+</div> -->
 
-</div>
+  <p class="mb-5">
+    <span>{{ number }}</span>
+    <span v-show="number%2 == 0"> is Even</span>
+    <span v-show="number%2 == 1"> is odd</span>
+  </p>
 
+  <button @click="number++" class="bg-blue-500 hover:bg-blue-700 font-white text-bold p-3"> Add Number</button>
+
+
+
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 lg:px-0">
+        <div class="mt-20 mx-auto md:w-full lg:w-6/12 ">
+            <h2 class="font-bold font-hind-siliguri text-3xl lg:text-[55px] lg:leading-[65px] text-primary-950 mb-4 text-center">
+                আপনাদের
+                <span class="text-primary-500 inline-block font-hind-siliguri font-bold">প্রশ্নবলি</span>
+            </h2>
+            <p class="text-lg text-primary-950 mb-6 text-center">এই বণিক সফ্টওয়্যারটি বৈশিষ্ট্য এবং কার্যকারিতাগুলির একটি বিস্তৃত অ্যারে অফার করে, যার লক্ষ্য ব্যবসায়িক ক্রিয়াকলাপ সহজ করা </p>
+        </div>
+        <div class="py-4 lg:py-20 flex flex-col gap-12 lg:flex-row">
+            <div class="w-full lg:w-5/12 overflow-hidden">
+                <img src="https://boonik.org/wp-content/themes/boonik-theme/images/faq.svg" alt="Faq">
+            </div>
+            <div class="w-full lg:w-7/12">
+				            <div>
+                        <dl class="faq">
+                            <dt class="text-lg p-5 text-left border-2 border-solid rounded border-primary-300  mb-8 bg-gradient-to-b">
+                                
+                                    <span @click="activeIndex=0" class="cursor-pointer text-xl font-ekushey-lalsalubold text-primary-950">বণিক দিয়ে কী কী ধরনের বিজনেস পরিচালনা করা সম্ভব?</span>
+                                    <p v-show="activeIndex==0" class="pb-6 text-lg text-gray-600 p-5 text-left font-ekushey-lalsaluregular border-2 border-solid rounded border-primary-300 mb-8">বণিক দিয়ে আপনি যেকোনো ধরনের ব্যবসা পরিচালনা করতে পারবেন, যেমন সব ধরনের দোকান, রেস্টুরেন্ট, ক্যাফে, অনলাইন বিজনেস, ফেসবুক গ্রুপ বা পেইজ ভিত্তিক ব্যবসা ইত্যাদি।</p>
+
+                            </dt>
+
+                        </dl>
+                    </div>
+                      <div>
+                        <dl class="faq">
+                            <dt class="text-lg p-5 text-left border-2 border-solid rounded border-primary-300  mb-8 bg-gradient-to-b">
+                                
+                                    <span @click="activeIndex=1" class="cursor-pointer text-xl font-ekushey-lalsalubold text-primary-950">আমি কী ফ্রিতে ট্রায়াল দিতে পারবো?</span>
+                                    <p v-show="activeIndex == 1" class="pb-6 text-lg text-gray-600 p-5 text-left font-ekushey-lalsaluregular border-2 border-solid rounded border-primary-300 mb-8">হ্যাঁ, আপনি পুরো এক মাসের ফ্রি ট্রায়াল ব্যবহার করতে পারবেন।</p>
+
+                            </dt>
+                            <dd class="faq-answer block max-h-0 overflow-hidden duration-300 ease-in-out" id="faq-1">
+                            </dd>
+                        </dl>
+                    </div>
+                      <div>
+                        <dl class="faq">
+                            <dt class="text-lg p-5 text-left border-2 border-solid rounded border-primary-300  mb-8 bg-gradient-to-b">
+                                
+                                    <span @click="activeIndex=2" class="cursor-pointer text-xl font-ekushey-lalsalubold text-primary-950">আমি বর্তমানে একটা POS ব্যবহার করছি, বনিক শুরু করতে চাইলে কিভাবে করবো?</span>
+                                    <p v-show="activeIndex==2" class="pb-6 text-lg text-gray-600 p-5 text-left font-ekushey-lalsaluregular border-2 border-solid rounded border-primary-300 mb-8">আপনি যেকোনো সময়ই মুভ করতে পারবেন। এক্ষেত্রে সহযোগিতা করার জন্য আমাদের আইটি টিম আপনাকে হেল্প করবে।</p>
+
+                            </dt>
+                        </dl>
+                    </div>
+                      <div>
+                        <dl class="faq">
+                            <dt class="text-lg p-5 text-left border-2 border-solid rounded border-primary-300  mb-8 bg-gradient-to-b">
+                                
+                                    <span @click="activeIndex=3" class="cursor-pointer text-xl font-ekushey-lalsalubold text-primary-950">আমার নিজস্ব শিপিং ও ডেলিভারি ম্যান আছে, সেটা কী ম্যানেজ করতে পারবো?</span>
+                                    <p v-show="activeIndex==3" class="pb-6 text-lg text-gray-600 p-5 text-left font-ekushey-lalsaluregular border-2 border-solid rounded border-primary-300 mb-8">হ্যাঁ। আপনার নিজের বা কাস্টম কোন শিপিং সিস্টেম বনিকে ব্যবহার করতে পারবেন। যখনই কোন স্ট্যাটাস আপডেট হবে, বনিকে আপনি আপডেট করে দিবেন। আপনি চাইলে মোবাইল এসএমএস এর মাধ্যমে আপনার কাস্টমার কে জানিয়ে দিতে পারবেন।</p>
+
+                                  </dt>
+                        </dl>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
 
 </template>
 
